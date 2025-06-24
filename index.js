@@ -14,6 +14,10 @@ bot.api.setMyCommands([
     {
         command: "menu", 
         description: "Меню"
+    },
+    {
+        command: "help",
+        description: "Помощь"
     }
 ]);
 
@@ -54,6 +58,10 @@ bot.callbackQuery('back', async (ctx) => {
         reply_markup: menuKeyboard
     });
     await ctx.answerCallbackQuery();
+});
+
+bot.command('help', async (ctx) => {
+    await ctx.reply('Для помощи обратитесь в поддержку: ()');
 });
 
 bot.catch((err) => {
